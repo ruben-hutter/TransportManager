@@ -1,0 +1,10 @@
+[project]
+name = "transportmanager"
+version = "0.1.0"
+description = "Track transport costs vs GA subscription (355 CHF/month)"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "matplotlib>=3.10.6",
+    "pandas>=2.3.2",
+]
