@@ -10,8 +10,9 @@ import os
 from datetime import datetime
 
 # HARDCODED SETTINGS
-CSV_FILE = "2025_09_25.csv"
+CSV_FILE = "data/2025_09_25.csv"
 SUBSCRIPTION_COST = 355.00
+END_DATE = "2025-10-24"
 
 
 def load_data():
@@ -44,11 +45,14 @@ def display_data(df):
     total = df["Cost_CHF"].sum()
     remaining = SUBSCRIPTION_COST - total
     coverage = (total / SUBSCRIPTION_COST) * 100
+    today = datetime.now()
+    days_left = (datetime.strptime(END_DATE, "%Y-%m-%d") - today).days
 
     print("=" * 60)
     print(f"💰 Total: {total:.2f} CHF")
     print(f"🎯 Subscription: {SUBSCRIPTION_COST:.2f} CHF")
     print(f"📊 Coverage: {coverage:.1f}%")
+    print(f"⏳ Days left: {days_left} days")
 
     if remaining > 0:
         print(f"🔴 Need {remaining:.2f} CHF more to break even\n")
@@ -104,17 +108,20 @@ def plot_coverage(df):
     total = df["Cost_CHF"].sum()
     remaining = max(0, SUBSCRIPTION_COST - total)
     exceeded = max(0, total - SUBSCRIPTION_COST)
+    today = datetime.now()
+    days_left = (datetime.strptime(END_DATE, "%Y-%m-%d") - today).days
+    days_left = max(0, days_left)
 
     if exceeded > 0:
         labels = ["Break-even amount", "Excess usage"]
         sizes = [SUBSCRIPTION_COST, exceeded]
         colors = ["#2E8B57", "#FF6347"]
-        title = f"Total: {total:.2f} CHF (Exceeded by {exceeded:.2f} CHF)"
+        title = f"Total: {total:.2f} CHF (Exceeded by {exceeded:.2f} CHF) - {days_left} days left"
     else:
         labels = ["Used", "Remaining"]
         sizes = [total, remaining]
         colors = ["#4169E1", "#D3D3D3"]
-        title = f"Total: {total:.2f} CHF ({remaining:.2f} CHF to break even)"
+        title = f"Total: {total:.2f} CHF ({remaining:.2f} CHF to break even) - {days_left} days left"
 
     plt.figure(figsize=(10, 8))
     wedges, texts, autotexts = plt.pie(
