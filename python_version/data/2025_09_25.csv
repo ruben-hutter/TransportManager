@@ -1,0 +1,18 @@
+Date,From,To,Cost_CHF
+2025-09-27,Allschwil,S. Antonino,44.1
+2025-09-27,S. Antonino,Luino,7.8
+2025-09-28,Luino,Miglieglia,2.6
+2025-09-28,Miglieglia,Luino,2.6
+2025-09-29,Luino,Allschwil,56.3
+2025-09-30,Allschwil,Brugg,13.1
+2025-09-30,Brugg,La Roche,13.1
+2025-09-30,La Roche,Allschwil,2.9
+2025-10-01,Allschwil,"Zürich, ETH Hönggerberg",22.5
+2025-10-01,"Zürich, ETH Hönggerberg",Allschwil,22.5
+2025-10-04,Allschwil,Lugano,48.1
+2025-10-04,Lugano,Luino,3.9
+2025-10-04,Luino,Allschwil,56.3
+2025-10-08,Allschwil,Brugg,10.0
+2025-10-08,Brugg,Allschwil,13.1
+2025-10-09,Allschwil,Brugg,13.1
+2025-10-09,Brugg,Allschwil,13.1
